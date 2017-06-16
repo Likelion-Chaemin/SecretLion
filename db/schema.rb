@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170616115433) do
     t.string   "name"
     t.string   "photo"
     t.integer  "status"
+
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
