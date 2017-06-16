@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :comments
   has_many :commentlikes
-  has_many :commented_questions, through :comments, source :question
-  has_many :liked_comments, through :commentlikes, source :comment
+  has_many :commented_questions, through: :comments, source: :question
+  has_many :liked_comments, through: :commentlikes, source: :comment
 
   has_many :votes
   has_many :photolikes
-  has_many :liked_photos, through :photolikes, source :photo
+  has_many :liked_photos, through: :photolikes, source: :photo
 end
