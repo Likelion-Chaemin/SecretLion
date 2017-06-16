@@ -1,0 +1,2 @@
+module PhotolikesHelper
+end
