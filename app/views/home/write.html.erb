@@ -1,3 +1,58 @@
-<h1>write~</h1>
-<p>CRUD의 C를 구현해봅시다 </p>
+<style>
+.upper_btn {
+	background-color: white;
+	color: #E67F22;
+	border: 1px solid #E67F22;
+	box-sizing: border-box;
+		padding: 10px;
+			width: 50%;
+				text-align: center;
+}
+.selected {
+	background-color: #E67F22;
+	color: white;
+}
+.write_panel {
+	background-color: lightgray;
+}
+</style>
 
+<div class="row">
+	<div id="question_btn" class="col-md-6 upper_btn selected">
+		질문
+	</div>
+	<div id="vote_btn" class="col-md-6 upper_btn">
+		투표
+	</div>
+</div>
+<div class="row" id="question_write">
+	<div class="panel write_panel col-md-12">
+		icon username
+		<form>
+			<div>
+				write
+			</div>
+			<div>
+				choice
+			</div>
+			<button class="pull-right">질문등록</button>
+		</form>
+	</div>
+</div>
+<div class="row" id="vote_write">
+	<div class="col-md-12">
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+	$("#question_btn").click(function(){
+		// Do sth
+	});
+
+	$("#vote_btn").click(function(){
+		// Do sth
+	});
+});
+</script>
