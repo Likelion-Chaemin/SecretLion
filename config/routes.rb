@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get 'home/index'
+	get 'home/write'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

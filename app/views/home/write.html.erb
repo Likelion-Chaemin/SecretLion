@@ -1,0 +1,74 @@
+<style>
+.upper-btn {
+	background-color: white;
+	color: #E67F22;
+	border: 1px solid #E67F22;
+	box-sizing: border-box;
+		padding: 10px;
+			width: 50%;
+				text-align: center;
+}
+.selected {
+	background-color: #E67F22;
+	color: white;
+}
+.write_panel {
+	background-color: lightgray;
+		padding: 15px;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+}
+</style>
+
+<div class="row">
+	<div id="question_btn" class="col-md-6 upper-btn selected">
+		질문
+	</div>
+	<div id="vote_btn" class="col-md-6 upper-btn">
+		투표
+	</div>
+</div>
+<div class="row" id="question_write">
+	<div class="panel write_panel col-md-12">
+		<form>
+			<div>
+				icon username -> icon username
+			</div>
+			<div>
+				질문을 적어주세요
+			</div>
+			<div>
+				추가 설명이 필요하다면..!
+			</div>
+			<a class="pull-right btn-gray">질문등록</a>
+		</form>
+	</div>
+</div>
+<div class="row" id="vote_write" style="display:none">
+	<div class="panel write_panel col-md-12">
+		icon username
+		<form>
+			<div>
+				write
+			</div>
+			<div>
+				choice
+			</div>
+			<a class="pull-right btn-gray">투표등록</a>
+		</form>
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+	var toggle = function(){
+		$("#question_btn").toggleClass('selected');
+		$("#vote_btn").toggleClass('selected');
+		$('#question_write').toggle();
+		$('#vote_write').toggle();
+	}
+	$("#question_btn").click(toggle);
+	$("#vote_btn").click(toggle);
+});
+</script>
