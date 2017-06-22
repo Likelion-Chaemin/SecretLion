@@ -1,0 +1,2 @@
+class PhotolikesController < ApplicationController
+end

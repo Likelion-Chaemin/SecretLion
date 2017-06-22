@@ -1,0 +1,73 @@
+<style>
+.q-view {
+	border: 1px solid lightgray;
+		border-radius: 10px;
+			padding: 10px 0;
+}
+.desc {
+	background-color: lightgray;
+		margin: 20px 50px;
+			padding: 5px;
+}
+.date {
+	padding: 0;
+		color: lightgray;
+}
+.below-view {
+	background-color: lightgray;
+	margin: 0 5px;
+}
+.show-reply-selected {
+	background-color: orange;
+}
+.show-cmt-selected {
+	background-color: green;
+}
+</style>
+<div class="row q-view">
+	<div class="col-md-12">
+		<p>채민->태건</p>
+		<h3>Q. ~~</h3>
+		<div class="desc">
+			&lt;Description&gt;
+			<p>~~~</p>
+		</div>
+		<div>
+			<div class="col-md-6 date">
+				<p style="margin-top:10px; margin-bottom:0">2017.6.20</p>
+			</div>
+			<div class="pull-right">
+				<p id="show_reply_id" class="btn-gray" style="margin: 0 10px 0 0">
+					답변달기
+				</a>
+				<p id="show_cmt_id" class="btn-gray" style="margin: 0">
+					펼쳐보기
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="reply_id" class="row below-view" style="display:none">
+	reply
+</div>
+<div id="cmt_id" class="row below-view" style="display:none">
+	show cmts
+</div>
+
+<script>
+$(document).ready(function(){
+	$("#show_reply_id").click(function(){
+		$(this).toggleClass("show-reply-selected");
+		$("#reply_id").toggle();
+		$("#show_cmt_id").removeClass("show-cmt-selected");
+		$("#cmt_id").hide();
+	});
+
+	$("#show_cmt_id").click(function(){
+		$(this).toggleClass("show-cmt-selected");
+		$("#cmt_id").toggle();
+		$("#show_reply_id").removeClass("show-reply-selected");
+		$("#reply_id").hide();
+	});
+});
+</script>
