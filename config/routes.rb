@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   get 'home/index'
 	get 'home/write'
-
 	post 'home/create'
+	
 	
 
   devise_for :users
