@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",     null: false
     t.integer  "to_user_id"
-    t.string   "title"
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

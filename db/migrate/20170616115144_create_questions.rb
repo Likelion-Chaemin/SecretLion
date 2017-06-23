@@ -3,8 +3,8 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.integer :user_id, null: false
       t.integer :to_user_id
-      t.string :title
-      t.string :content
+      t.text :title
+      t.text :description
       t.timestamps null: false
     end
   end

@@ -24,29 +24,32 @@
 	background-color: green;
 }
 </style>
-<div class="row q-view">
-	<div class="col-md-12">
-		<p>채민->태건</p>
-		<h3>Q. ~~</h3>
-		<div class="desc">
-			&lt;Description&gt;
-			<p>~~~</p>
-		</div>
-		<div>
-			<div class="col-md-6 date">
-				<p style="margin-top:10px; margin-bottom:0">2017.6.20</p>
-			</div>
-			<div class="pull-right">
-				<p id="show_reply_id" class="btn-gray" style="margin: 0 10px 0 0">
-					답변달기
-				</a>
-				<p id="show_cmt_id" class="btn-gray" style="margin: 0">
-					펼쳐보기
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
+
+<% @questions.reverse_each do |q| %>
+  <div class="row q-view">
+  	<div class="col-md-12">
+  		<p><%= q.user_id %> -> 태건</p>
+  		<h3> <%= q.title %>adfasf </h3>
+  		<div class="desc">
+  			&lt;Description&gt;
+  			<p> <%= q.description %> </p>
+  		</div>
+  		<div>
+  			<div class="col-md-6 date">
+  				<p style="margin-top:10px; margin-bottom:0"><%= q.created_at %></p>
+  			</div>
+  			<div class="pull-right">
+  				<p id="show_reply_id" class="btn-gray" style="margin: 0 10px 0 0">
+  					답변달기
+  				</a>
+  				<p id="show_cmt_id" class="btn-gray" style="margin: 0">
+  					펼쳐보기
+  				</p>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+<% end %>
 <div id="reply_id" class="row below-view" style="display:none">
 	reply
 </div>
