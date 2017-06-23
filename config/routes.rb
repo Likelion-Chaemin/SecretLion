@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	post 'home/create'
 	
 	post 'vote/create' => 'votes#create'
+	post 'vote/photo/like/:photo_id' => 'votes#photolike'
 	
 
   devise_for :users

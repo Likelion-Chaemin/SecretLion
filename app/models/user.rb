@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :liked_comments, through: :commentlikes, source: :comment
 
   has_many :votes
+  has_many :photos, through: :photo, source: :target
   has_many :photolikes
   has_many :liked_photos, through: :photolikes, source: :photo
 

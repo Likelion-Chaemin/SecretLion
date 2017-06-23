@@ -23,56 +23,125 @@
 .show-cmt-selected {
 	background-color: green;
 }
+.photo_cell {
+	min-height: 40px;
+
+		    display: -webkit-box;
+					    display: -moz-box;
+								    display: -ms-flexbox;
+											    display: -webkit-flex;
+														    display: flex;
+																	    align-items: center;
+																				    justify-content: center;
+}
+.vote_graph {
+	display: inline-block;
+	background-color: orange;
+		min-height: 20px;
+}
+			.vote_graph-selected {
+				background-color: green;
+			}
+			.vote_count {
+				display: inline-block;
+			}
 </style>
 
 
-<% @questions.reverse_each do |q| %>
+<% @posts.reverse_each do |p|
+	if p.is_a? Question
+		unique_id = "q" + p.id.to_s
+	else
+		unique_id = "v" + p.id.to_s
+	end
+%>
+<div>
   <div class="row q-view">
   	<div class="col-md-12">
-  		<p><%= current_user.name %> -> <%= User.find(q.to_user_id).name %> </p>
-  		<h3> <%= q.title %> </h3>
-  		<div class="desc">
-  			&lt;Description&gt;
-  			<p> <%= q.description %> </p>
-  		</div>
+			<p><%= current_user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
+  		<h3><%= p.title %></h3>
+			<div class="desc">
+				&lt;Description&gt;
+				<p>
+					<%= p.description %>
+				</p>
+			</div>
   		<div>
   			<div class="col-md-6 date">
-  				<p style="margin-top:10px; margin-bottom:0"><%= q.created_at %></p>
+  				<p style="margin-top:10px; margin-bottom:0"><%= p.created_at %></p>
   			</div>
   			<div class="pull-right">
-  				<span id="show_reply_id" class="btn-gray" style="margin: 0 10px 0 0">
-  					답변달기
-  				</span>
-  				<span id="show_cmt_id" class="btn-gray" style="margin: 0">
-  					펼쳐보기
-  				</span>
+					<span id= "show_<%=unique_id%>" class="show_answer btn-gray" data-value="<%= unique_id %>" style="margin: 0 10px 0 0">
+						<% if p.hasAnswered(current_user.id) %>
+  						펼쳐보기
+						<% else %>
+							답변달기
+						<% end %>
+					</span>
   			</div>
   		</div>
   	</div>
   </div>
+	<div id="answer_<%= unique_id %>" class="row below-view" style="display:none">
+		<% # 질문일 때
+		if p.is_a? Question %>
+
+	<% # 이 부분에다 코멘트를 만들면 됩니다! %>
+
+			<% # 투표일 때
+		else %>
+		<div class="col-md-12">
+		<% p.photos.each do |photo| %>
+			<div class="photo_cell row" data-photo_id="<%=photo.id %>">
+				<div class="col-xs-3 col-sm-2 col-md-2">
+					<%= photo.target.name %>
+				</div>
+				<div class="col-xs-9 col-sm-10 col-md-10">
+					<div id="vote_graph<%=photo.id%>" class="vote_graph <%="vote_graph-selected" if photo.hasChosen(current_user.id)%>" style="width:<%=photo.width%>%">
+						</div>
+						<div id="vote_count<%=photo.id%>" class="vote_count">
+							<%= photo.photolikes.count %>표
+						</div>
+				</div>
+			</div>
+		<% end %>
+		</div>
+		<% end %>
+	</div>
+	<% # margin %>
+	<div style="padding-top: 10px"></div>
+	</div>
 <% end %>
 
-<div id="reply_id" class="row below-view" style="display:none">
-	reply
-</div>
-<div id="cmt_id" class="row below-view" style="display:none">
-	show cmts
-</div>
 
 <script>
 $(document).ready(function(){
-	$("#show_reply_id").click(function(){
+	$(".show_answer").click(function(){
+		var unique_id = $(this).attr('data-value');
 		$(this).toggleClass("show-reply-selected");
-		$("#reply_id").toggle();
-		$("#show_cmt_id").removeClass("show-cmt-selected");
-		$("#cmt_id").hide();
+		$("#answer_"+unique_id).toggle();
 	});
-
-	$("#show_cmt_id").click(function(){
-		$(this).toggleClass("show-cmt-selected");
-		$("#cmt_id").toggle();
-		$("#show_reply_id").removeClass("show-reply-selected");
-		$("#reply_id").hide();
+	$(".photo_cell").click(function(e){
+		const photo_id = $(this).data("photo_id");
+		$.ajax({
+			url: '/vote/photo/like/' + photo_id,
+			type: 'POST',
+			dataType: 'json',
+			data: {	},
+			success: function(data) {
+				$("#vote_graph" + photo_id).animate({"width":data.width+"%"}, 1000);
+				$("#vote_count" + photo_id).text(data.votes + "표");
+				$("#vote_graph" + photo_id).toggleClass("vote_graph-selected");
+				if(data.cancelled) {
+					$("#vote_graph" + photo_id).removeClass("vote_graph-selected");
+				}
+				if(data.moved) {
+					$("#vote_graph" + data.former_id).animate({"width":data.former_width+"%"}, 1000);
+					$("#vote_count" + data.former_id).text(data.former_votes + "표");
+					$("#vote_graph" + data.former_id).removeClass("vote_graph-selected");
+				}
+			}
+		});
 	});
 });
 </script>

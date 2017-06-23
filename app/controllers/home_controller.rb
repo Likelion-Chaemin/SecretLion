@@ -3,8 +3,10 @@ class HomeController < ApplicationController
   layout "layout"
   before_action :authenticate_user!
     def index
-      @questions = Question.all
-
+			votes = Vote.all
+      questions = Question.all
+			@posts = votes + questions
+			@posts = @posts.sort_by &:created_at
     end
     
     def create
