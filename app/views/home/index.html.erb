@@ -25,10 +25,11 @@
 }
 </style>
 
+
 <% @questions.reverse_each do |q| %>
   <div class="row q-view">
   	<div class="col-md-12">
-  		<p><%= q.user.name %> -> <%= q.name %> </p>
+  		<p><%= current_user.name %> -> <%= User.find(q.to_user_id).name %> </p>
   		<h3> <%= q.title %> </h3>
   		<div class="desc">
   			&lt;Description&gt;
@@ -50,6 +51,7 @@
   	</div>
   </div>
 <% end %>
+
 <div id="reply_id" class="row below-view" style="display:none">
 	reply
 </div>

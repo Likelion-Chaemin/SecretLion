@@ -32,20 +32,19 @@
 </div>
 <div class="row" id="question_write">
 	<div class="panel write_panel col-md-12">
+
 		<form action="/home/create" method="POST">
 			<div>
-				<span>icon username</span> -> 
-				<span class="to_user_id">
-					<select name="toUserId">
-						<option value="임채민">임채민</option>
-						<option value="손원희">손원희</option>
-						<option value="고태건">고태건</option>
-						<option value="서재성">서재성</option>
-						<option value="김유경">김유경</option>
-						<option value="김승현">김승현</option>
-					</select>
-				</span>
+				<span><%=current_user.name%></span> -> 
+					<span class="to_user_id">
+						<select name="toUserId">
+							<% @users.each do |u| %>
+								<option value="<%=u.id%>"><%=u.name%></option>
+							<%end%>
+						</select>
+					</span>
 			</div>
+					
 			<div>
 				<textarea name="question" cols="100" rows="3" placeholder="질문을 적어주세요" ></textarea>
 			</div>
@@ -55,12 +54,14 @@
 			<div>
 				<button type="submit" class="pull-right btn_gray">질문등록</button>
 			</div>
+
 		</form>
 	</div>
 </div>
 <div class="row" id="vote_write" style="display:none">
 	<div class="panel write_panel col-md-12">
 		icon username
+
 		<form action="/home/index" method="POST">
 			<div>
 				<textarea name="vote" cols="100" rows="3" placeholder="투표를 만들어주세요" ></textarea>
@@ -74,6 +75,7 @@
 				<input type="checkbox" name="김승현" value="김승현">김승현
 			</div>
 				<button type="submit" class="pull-right btn_gray">투표등록</button>
+
 		</form>
 	</div>
 </div>
