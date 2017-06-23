@@ -74,9 +74,9 @@
   				<div class="panel-body" style="background-color:lightgray;">
   					<p style="text-align:center">사자들</p>
   					<div class="row" style="padding:5px;">
-  					<% 36.times {	%>
-  						<div class="col-md-4 ppl-icon" style="background-image: url('http://snu.likelion.net/assets/%EA%B9%80%EA%B2%BD%EB%8F%84-b54be18ead6b8ad37a30bb1c2aeb40513ad7e3068c60c33ad8607c9298b0ffa9.png');"></div>
-  					<% } %>
+  					<% for user in User.all	%>
+  						<div class="col-md-4 ppl-icon" style="background-image: url('<%= user.photo %>');"></div>
+  					<% end %>
   					</div>
   				</div>
   			</div>
