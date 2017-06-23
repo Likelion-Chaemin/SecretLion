@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   
   get 'home/index'
 	get 'home/write'
-<<<<<<< HEAD
+
 	post 'home/create'
 	
-	
-=======
->>>>>>> ff7e86acb2a9aa440d1e2576bf1b7be571942eb5
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
