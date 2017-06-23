@@ -75,18 +75,17 @@
 <div class="row" id="vote_write" style="display:none">
 	<div class="panel write_panel col-md-12">
 				icon <span><%=current_user.name%></span>
-		<form action="/vote" method="PUT">
-				<textarea name="vote" rows="3" placeholder="투표를 만들어주세요" ></textarea>
+		<form action="/vote/create" method="POST">
+			<textarea name="vote" rows="3" placeholder="투표를 만들어주세요."></textarea>
 			<div class="target_box" style="margin-bottom: 20px">
 				<p style="color:gray">대상을 선택해주세요.</p>
 				<% @users.each do |u| %>
 					<div style="display:inline-block">
-						<input type="checkbox" name="target_user" value="<%=u.id%>">&nbsp;<%=u.name%>
+						<input type="checkbox" name="target_user[]" value="<%=u.id%>">&nbsp;<%=u.name%>
 					</div>
 			<% end %>
 			</div>
 				<button type="submit" class="pull-right btn_gray">투표등록</button>
-
 		</form>
 	</div>
 </div>

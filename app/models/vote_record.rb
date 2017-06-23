@@ -1,4 +1,4 @@
 class VoteRecord < ActiveRecord::Base
-	belongs_to: :user
-	belongs_to: :vote
+	belongs_to :user
+	belongs_to :vote
 end

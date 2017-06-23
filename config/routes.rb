@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	get 'home/write'
 	post 'home/create'
 	
-	put 'vote' => 'votes#create'
+	post 'vote/create' => 'votes#create'
 	
 
   devise_for :users
