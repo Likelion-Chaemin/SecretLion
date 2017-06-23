@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   end
 
   create_table "questions", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "user_id",     null: false
     t.string   "name"
     t.integer  "to_user_id"
@@ -52,6 +53,14 @@ ActiveRecord::Schema.define(version: 20170616115433) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+    t.integer  "user_id",    null: false
+    t.integer  "to_user_id"
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> ff7e86acb2a9aa440d1e2576bf1b7be571942eb5
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +69,10 @@ ActiveRecord::Schema.define(version: 20170616115433) do
     t.string   "name"
     t.string   "photo"
     t.integer  "status"
+<<<<<<< HEAD
+=======
+
+>>>>>>> ff7e86acb2a9aa440d1e2576bf1b7be571942eb5
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   layout "layout"
   before_action :authenticate_user!
     def index
@@ -18,4 +19,5 @@ class HomeController < ApplicationController
     def write
       @question = Question.new
     end
+
 end
