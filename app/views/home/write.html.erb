@@ -18,7 +18,21 @@
 			border-top-left-radius: 0px;
 			border-top-right-radius: 0px;
 }
-
+.target_box {
+	background-color: white;
+		padding: 5px;
+		border: 1px solid lightgray;
+			border-radius: 5px;
+				width: 94%;
+					margin: 0 3%;
+}
+	textarea {
+		-webkit-box-sizing: border-box;
+			       -moz-box-sizing: border-box;
+							             box-sizing: border-box;
+														 width: 94%;
+															 margin: 5px 3%;
+	}
 
 </style>
 
@@ -46,10 +60,10 @@
 			</div>
 					
 			<div>
-				<textarea name="question" cols="100" rows="3" placeholder="질문을 적어주세요" ></textarea>
+				<textarea name="question" rows="3" placeholder="질문을 적어주세요" ></textarea>
 			</div>
 			<div>
-				<textarea name="description" cols="60" rows="7" placeholder="추가 설명을 적어주세요" ></textarea>
+				<textarea name="description" rows="7" placeholder="추가 설명을 적어주세요" style="width: 80%; margin: 10px 10% 20px 10%"></textarea>
 			</div>
 			<div>
 				<button type="submit" class="pull-right btn_gray">질문등록</button>
@@ -60,19 +74,16 @@
 </div>
 <div class="row" id="vote_write" style="display:none">
 	<div class="panel write_panel col-md-12">
-		icon username
-
-		<form action="/home/index" method="POST">
-			<div>
-				<textarea name="vote" cols="100" rows="3" placeholder="투표를 만들어주세요" ></textarea>
-			</div>
-			<div>
-				<input type="checkbox" name="임채민" value="임채민">임채민
-				<input type="checkbox" name="손원희" value="손원희">손원희
-				<input type="checkbox" name="고태건" value="고태건">고태건 <br>
-				<input type="checkbox" name="서재성" value="서재성">서재성
-				<input type="checkbox" name="김유경" value="김유경">김유경
-				<input type="checkbox" name="김승현" value="김승현">김승현
+				icon <span><%=current_user.name%></span>
+		<form action="/vote" method="PUT">
+				<textarea name="vote" rows="3" placeholder="투표를 만들어주세요" ></textarea>
+			<div class="target_box" style="margin-bottom: 20px">
+				<p style="color:gray">대상을 선택해주세요.</p>
+				<% @users.each do |u| %>
+					<div style="display:inline-block">
+						<input type="checkbox" name="target_user" value="<%=u.id%>">&nbsp;<%=u.name%>
+					</div>
+			<% end %>
 			</div>
 				<button type="submit" class="pull-right btn_gray">투표등록</button>
 
