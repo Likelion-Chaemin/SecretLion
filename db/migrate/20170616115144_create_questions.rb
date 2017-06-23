@@ -2,6 +2,7 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.integer :user_id, null: false
+      t.string :name
       t.integer :to_user_id
       t.text :title
       t.text :description

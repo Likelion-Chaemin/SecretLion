@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170616115433) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "user_id",     null: false
+    t.string   "name"
     t.integer  "to_user_id"
     t.text     "title"
     t.text     "description"
