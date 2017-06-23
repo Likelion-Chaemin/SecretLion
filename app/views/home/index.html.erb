@@ -24,6 +24,34 @@
 	background-color: green;
 }
 </style>
+<<<<<<< HEAD
+
+<% @questions.reverse_each do |q| %>
+  <div class="row q-view">
+  	<div class="col-md-12">
+  		<p><%= q.user.name %> -> <%= q.name %> </p>
+  		<h3> <%= q.title %> </h3>
+  		<div class="desc">
+  			&lt;Description&gt;
+  			<p> <%= q.description %> </p>
+  		</div>
+  		<div>
+  			<div class="col-md-6 date">
+  				<p style="margin-top:10px; margin-bottom:0"><%= q.created_at %></p>
+  			</div>
+  			<div class="pull-right">
+  				<span id="show_reply_id" class="btn-gray" style="margin: 0 10px 0 0">
+  					답변달기
+  				</span>
+  				<span id="show_cmt_id" class="btn-gray" style="margin: 0">
+  					펼쳐보기
+  				</span>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+<% end %>
+=======
 <div class="row q-view">
 	<div class="col-md-12">
 		<p>채민->태건</p>
@@ -47,6 +75,7 @@
 		</div>
 	</div>
 </div>
+>>>>>>> ff7e86acb2a9aa440d1e2576bf1b7be571942eb5
 <div id="reply_id" class="row below-view" style="display:none">
 	reply
 </div>
