@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :photolikes
   has_many :liked_photos, through: :photolikes, source: :photo
+
 end
