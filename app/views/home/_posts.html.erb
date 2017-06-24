@@ -44,17 +44,19 @@
 		<div class="col-md-12">
 			<%= form_tag "/home/new_comment/"+p.id.to_s, remote: true do %>
 				<div>
-				<%= text_area_tag "reply" %>
+					<%= text_area_tag "reply", nil, id: "textfield_"+p.id.to_s, placeholder: "답변을 달아주세요.", style: "margin: 20px 10px 10px 10px; border-radius: 7px" %>
 				</div>
 				<div class="pull-right">
-					<%= submit_tag "답변등록" %>
+					<%= submit_tag "답변등록", class: "pull-right btn-gray", style: "margin-bottom: 10px" %>
 				</div>
 			<% end %>
 				<%
 		#	<form action="/comments/create/ p.id " method="GET">
 		#		<div>
+					#		
 		#		<textarea name="reply" cols="70" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px; border-radius: 7px;"></textarea>
 		#		</div>
+					#
 		#		<div class="pull-right">
 		#	  <button type="submit" class="pull-right btn-gray" style="margin-bottom:10px;">답변등록</button>
 		#		</div>
