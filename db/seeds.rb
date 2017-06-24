@@ -17,8 +17,7 @@ User.create email: 'kim90@likelion.org', password: '111111', name: '김근영', 
 User.create email: 'nm5005@snu.ac.kr', password: '111111', name: '조정원', id: '9', status: '5', photo: 'http://apsurvey.co.kr/secretlion/jjw.png'
 User.create email: 'jyoonsong@likelion.org', password: '111111', name: '송재윤', id: '10', status: '5', photo: 'http://apsurvey.co.kr/secretlion/sjy.png'
 User.create email: 'pjhjohn@gmail.com', password: '111111', name: '박준호', id: '11', status: '5', photo: 'http://apsurvey.co.kr/secretlion/pjh.png'
-"User.create email: '
-cokr3430@gmail.com', password: '111111', name: '정유철', id: '12', status: '5', photo: 'http://apsurvey.co.kr/secretlion/jyc.png'"
+User.create email: 'cokr3430@gmail.com', password: '111111', name: '정유철', id: '12', status: '5', photo: 'http://apsurvey.co.kr/secretlion/jyc.png'
 User.create email: 'rlarnjsqhd@gmail.com', password: '111111', name: '김권봉', id: '13', status: '5', photo: 'http://apsurvey.co.kr/secretlion/kkb.png'
 User.create email: 'dongmin.shin@dm.snu.ac.kr', password: '111111', name: '신동민', id: '14', status: '5', photo: 'http://apsurvey.co.kr/secretlion/sdm.png'
 User.create email: 'yoonhy557@gmail.com', password: '111111', name: '윤현영', id: '15', status: '5', photo: 'http://apsurvey.co.kr/secretlion/yhy.png'
