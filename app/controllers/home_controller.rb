@@ -65,4 +65,20 @@ class HomeController < ApplicationController
 				@comments = reply.question.comments
 		end
 
+		def comment_like
+			cmt_id = params[:cmt_id]
+
+			cmt = Comment.find(cmt_id)
+			like = Commentlike.where(user_id:current_user.id).where(comment_id: cmt_id)
+			if like.count > 0
+				like.take.destroy
+			else
+				cmtlike = Commentlike.new
+				cmtlike.user_id = current_user.id
+				cmtlike.comment_id = params[:cmt_id]
+				cmtlike.save
+			end
+				render json: { likes: cmt.commentlikes.count }
+		end
+
 end

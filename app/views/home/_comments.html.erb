@@ -2,7 +2,30 @@
 	<div class="row c-view" >
 		<div class="col-md-12" style="margin-top:10px;">
 			<p class="col-md-2"><%= c.user.name %></p>
-			<p><%= c.content %></p>
+			<p class="col-md-9"><%= c.content %></p>
+			<div class="like-box col-md-1" style="padding: 0" data-cmt_id="<%=c.id%>">
+				<i id="like_click<%=c.id%>" class="fa fa-heart" aria-hidden="true"></i>
+				<span id="like_label<%=c.id%>"><%=c.commentlikes.count%></span>
+			</div>
 		</div>
 	</div>
 <% end %>
+
+<script>
+$(document).ready(function(){
+	$(".like-box").click(function(){
+		const cmt_id = $(this).data("cmt_id");
+		$.ajax({
+			url: '/home/comment_like/' + cmt_id,
+			type: 'POST',
+			dataType: 'json',
+			data:{ },
+			success: function(data) {
+				$("#like_click" + cmt_id).toggleClass("red");
+				$("#like_label" + cmt_id).toggleClass("red");
+				$("#like_label" + cmt_id).text(data.likes);
+			}
+		});
+	});
+});
+</script>

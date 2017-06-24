@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	get 'home/write'
 	post 'home/create'
 	post 'home/new_comment/:q_id' => 'home#new_comment'
+	post 'home/comment_like/:cmt_id' => 'home#comment_like'
 	get 'search' => 'home#search'
 	get 'target' => 'home#target'
 	get 'mine' => 'home#mine'
