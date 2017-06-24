@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'home/index'
 	get 'home/write'
 	post 'home/create'
+	get 'search' => 'home#search'
+	get 'target' => 'home#target'
+	get 'mine' => 'home#mine'
 	
 	post 'vote/create' => 'votes#create'
 	post 'vote/photo/like/:photo_id' => 'votes#photolike'

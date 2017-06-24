@@ -1,0 +1,5 @@
+<% if @posts.count == 0 %>
+	<h1>나에 대한 질문이나 투표가 없습니다.</h1>
+<% else %>
+<%= render partial: "posts", locals: {posts: @posts} %>
+<% end %>

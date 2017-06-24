@@ -14,4 +14,16 @@ class User < ActiveRecord::Base
   has_many :photolikes
   has_many :liked_photos, through: :photolikes, source: :photo
 
+	def target
+				posts = Question.where(to_user_id: id)
+				for p in Photo.where(photo_user_id: id)
+					posts = posts << p.vote
+				end
+				return posts
+	end
+	def mine
+				qs = Question.where(user_id: id)
+				vs = Vote.where(user_id: id)
+				qs + vs
+	end
 end

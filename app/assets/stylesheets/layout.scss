@@ -1,3 +1,7 @@
+*{
+  @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+}
+
 .row1{
   background-color: #e67d22;
   width: 100%;
@@ -24,6 +28,16 @@
 	width:45px;
 	height:45px;
 	margin:3px;
+}
+.item-count {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+	border-radius: 50%;
+	font-size: 6pt;
+	background-color: red;
+	color: white;
 }
 .upper-btn {
 	background-color: white;
