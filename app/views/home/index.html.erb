@@ -11,7 +11,7 @@
   	<div class="col-md-12">
 			<p><%= current_user.name %><%="  ->  " if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
   		<h3><span class="title_word">질문</span> : <%= p.title %></h3>
-			<div class="desc">
+			<div class="desc" style="border-radius: 7px;">
 				&lt;상세설명&gt;
 				<p>
 					<%= p.description %>
@@ -39,7 +39,7 @@
 		if p.is_a? Question %>
 
   <% p.comments.each do |c| %>
-	  <div class="row c-view">
+	  <div class="row c-view" >
 	  	<div class="col-md-12" style="margin-top:10px;">
 				<p class="col-md-2"><%= c.user.name %></p>
 				<p><%= c.content %></p>
@@ -49,7 +49,7 @@
 		<div class="col-md-12">
 			<form action="/comments/create/<%= p.id %>" method="GET">
 				<div>
-				<textarea name="reply" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px;"></textarea>
+				<textarea name="reply" cols="70" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px; border-radius: 7px;"></textarea>
 				</div>
 				<div class="pull-right">
 			  <button type="submit" class="pull-right btn-gray" style="margin-bottom:10px;">답변등록</button>
