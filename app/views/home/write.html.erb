@@ -9,9 +9,9 @@
 	<div class="write_panel panel col-md-12">
 
 		<form action="/home/create" method="POST">
-			<div>
+			<div class="user_touser">
 				<div class="icon" style="background-image: url('<%=current_user.photo%>')"></div>
-				<span><%=current_user.name%></span> -&gt; 
+				<span><%=current_user.name%></span>   - &gt;  
 					<span class="to_user_id">
 						<select name="toUserId">
 							<% @users.each do |u| %>

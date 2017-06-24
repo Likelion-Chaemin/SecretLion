@@ -10,7 +10,7 @@
   <div class="row q-view">
   	<div class="col-md-12">
 			<div class="icon" style="background-image: url('<%=p.user.photo%>')"></div>
-			<p><%= p.user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
+			<p><%= p.user.name %><%="  ->  " if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
 			<h3><span class="title_word"><% if p.is_a? Question %>질문<% else %>투표<% end %></span> : <%= p.title %></h3>
 			<div class="desc" style="border-radius: 7px;">
 				&lt;상세설명&gt;
