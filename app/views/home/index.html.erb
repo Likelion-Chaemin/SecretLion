@@ -9,7 +9,8 @@
 <div class="col-md-12">
   <div class="row q-view">
   	<div class="col-md-12">
-			<p><%= current_user.name %><%="  ->  " if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
+			<div class="icon" style="background-image: url('<%=p.user.photo%>')"></div>
+			<p><%= p.user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
   		<h3><span class="title_word">질문</span> : <%= p.title %></h3>
 			<div class="desc" style="border-radius: 7px;">
 				&lt;상세설명&gt;
@@ -99,6 +100,18 @@ $(document).ready(function(){
 			dataType: 'json',
 			data: {	},
 			success: function(data) {
+				var length = data.ids.length;
+					console.log(data.ids[0]);
+				for (var i = 0; i < length; i++) {
+					$("#vote_graph" + data.ids[i]).animate({"width":data.widths[i]+"%"}, 1000);
+					$("#vote_count" + data.ids[i]).text(data.votes[i] + "표");
+					if(data.ids[i] != photo_id) {
+						$("#vote_graph" + data.ids[i]).removeClass("vote_graph-selected");
+					}
+				}
+				$("#vote_graph" + photo_id).toggleClass("vote_graph-selected");
+				
+				/*
 				$("#vote_graph" + photo_id).animate({"width":data.width+"%"}, 1000);
 				$("#vote_count" + photo_id).text(data.votes + "표");
 				$("#vote_graph" + photo_id).toggleClass("vote_graph-selected");
@@ -110,6 +123,7 @@ $(document).ready(function(){
 					$("#vote_count" + data.former_id).text(data.former_votes + "표");
 					$("#vote_graph" + data.former_id).removeClass("vote_graph-selected");
 				}
+				*/
 			}
 		});
 	});
