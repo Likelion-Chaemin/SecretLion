@@ -9,7 +9,8 @@
 <div class="col-md-12">
   <div class="row q-view">
   	<div class="col-md-12">
-			<p><%= current_user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
+			<div class="icon" style="background-image: url('<%=p.user.photo%>')"></div>
+			<p><%= p.user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
   		<h3><%= p.title %></h3>
 			<div class="desc">
 				&lt;Description&gt;
