@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 	
 	post 'vote/create' => 'votes#create'
 	post 'vote/photo/like/:photo_id' => 'votes#photolike'
+	get 'comments/index'
+	get 'comments/create/:q_id' => 'comments#create'
+
 	
 
   devise_for :users

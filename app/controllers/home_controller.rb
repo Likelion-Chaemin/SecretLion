@@ -7,6 +7,7 @@ class HomeController < ApplicationController
       questions = Question.all
 			@posts = votes + questions
 			@posts = @posts.sort_by &:created_at
+      @questions = Question.all
     end
     
     def create
