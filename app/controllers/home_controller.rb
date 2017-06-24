@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
     def index
       @questions = Question.all
-
+      @comments = Comment.all
     end
     
     def create

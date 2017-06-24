@@ -50,14 +50,27 @@
   		</div>
   	</div>
   </div>
-<% end %>
 
-<div id="reply_id" class="row below-view" style="display:none">
-	reply
-</div>
-<div id="cmt_id" class="row below-view" style="display:none">
-	show cmts
-</div>
+  <% q.comments.each do |c| %>
+	<div id="reply_id" class="row below-view" style="display:none">
+	  <div class="row c-view">
+	  	<div class="col-md-12" style="margin-top:10px;">
+			<p class="col-md-2"><%= c.user.name %></p>
+			<p><%= c.content %></p>
+		</div>
+	  </div>
+		<div class="col-md-10">
+			<form action="/comments/create/<%= q.id %>" method="GET">
+				<textarea name="reply" cols="100" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px;"></textarea>
+			  	<button type="submit" class="pull-right btn_gray" style="margin-bottom:10px;">답변등록</button>
+		  	</form>
+	  	</div>
+	</div>
+	<div id="cmt_id" class="row below-view" style="display:none">
+		show cmts
+	</div>
+  <% end %>
+<% end %>
 
 <script>
 $(document).ready(function(){

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'home/index'
 	get 'home/write'
 	post 'home/create'
-	
+	get 'comments/index'
+	get 'comments/create/:q_id' => 'comments#create'
+
 	
 
   devise_for :users
