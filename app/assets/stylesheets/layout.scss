@@ -6,3 +6,22 @@
   max-width: 1366px;
   min-width: 1000px;
 }
+
+.btn-gray {
+	display: inline-block;
+	padding: 5px 10px;
+		font-weight: 200;
+	color: white;
+	background-color: gray;
+	border-radius: 3px;
+}
+
+.icon {
+	display: inline-block;
+	background-size: contain;
+	padding-top:45px;
+	border-radius:50%;
+	width:45px;
+	height:45px;
+	margin:3px;
+}

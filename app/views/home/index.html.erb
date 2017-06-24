@@ -1,52 +1,3 @@
-<style>
-.q-view {
-	border: 1px solid lightgray;
-		border-radius: 10px;
-			padding: 10px 0;
-}
-.desc {
-	background-color: lightgray;
-		margin: 20px 50px;
-			padding: 5px;
-}
-.date {
-	padding: 0;
-		color: lightgray;
-}
-.below-view {
-	background-color: lightgray;
-	margin: 0 5px;
-}
-.show-reply-selected {
-	background-color: orange;
-}
-.show-cmt-selected {
-	background-color: green;
-}
-.photo_cell {
-	min-height: 40px;
-
-		    display: -webkit-box;
-					    display: -moz-box;
-								    display: -ms-flexbox;
-											    display: -webkit-flex;
-														    display: flex;
-																	    align-items: center;
-																				    justify-content: center;
-}
-.vote_graph {
-	display: inline-block;
-	background-color: orange;
-		min-height: 20px;
-}
-			.vote_graph-selected {
-				background-color: green;
-			}
-			.vote_count {
-				display: inline-block;
-			}
-</style>
-
 
 <% @posts.reverse_each do |p|
 	if p.is_a? Question
@@ -56,7 +7,7 @@
 	end
 %>
 <div>
-  <div class="row q-view">
+  <div class="col-md-12 q-view">
   	<div class="col-md-12">
 			<p><%= current_user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
   		<h3><%= p.title %></h3>
@@ -66,8 +17,8 @@
 					<%= p.description %>
 				</p>
 			</div>
-  		<div>
-  			<div class="col-md-6 date">
+  		<div class="col-md-12" style="padding-left: 0; padding-right: 0">
+  			<div class="date">
   				<p style="margin-top:10px; margin-bottom:0"><%= p.created_at %></p>
   			</div>
   			<div class="pull-right">
