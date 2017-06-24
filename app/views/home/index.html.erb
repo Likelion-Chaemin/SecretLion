@@ -9,10 +9,10 @@
 <div class="col-md-12">
   <div class="row q-view">
   	<div class="col-md-12">
-			<p><%= current_user.name %><%="->" if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
-  		<h3><%= p.title %></h3>
+			<p><%= current_user.name %><%="  ->  " if p.is_a? Question %><%= User.find(p.to_user_id).name if p.is_a? Question %> </p>
+  		<h3><span class="title_word">질문</span> : <%= p.title %></h3>
 			<div class="desc">
-				&lt;Description&gt;
+				&lt;상세설명&gt;
 				<p>
 					<%= p.description %>
 				</p>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>SecretLion</title>
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,6 +17,43 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<style>
+*{
+  @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+}
+.btn-gray {
+	display: inline-block;
+	padding: 5px 10px;
+	font-weight: 200;
+	color: white;
+	background-color: gray;
+	border-radius: 3px;
+}
+.ppl-icon {
+	background-size: contain;
+	padding-top:45px;
+	border-radius:50%;
+	width:45px;
+	height:45px;
+	margin:3px;
+}
+.secretlion {
+  margin-top: -10px;
+}
+.question {
+  margin: 5px 10px 0px 0px;
+}
+.question_word {
+  color: white !important; 
+  font-size: 1.3em;
+  font-weight: 1.1em;
+  vertical-align: center;
+  margin-right: 20px;
+}
+.title_word {
+  color: #E67F22;
+}
+</style>
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -30,22 +67,22 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/home/index">
-            <img alt="Secretlion" width=100px src="http://snu.likelion.net/assets/snulion_logo_wide2-b8c3eb69b92afb81b0dcacf596159d9416ddc69e2e37d326ad4d37b42da05072.png">
-          </a>
+            <%=image_tag('secretlion.png', width: '120px', height: '40px', class: 'secretlion')%>
+        </a>
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
         <form class="navbar-form navbar-left">
-          <div class="form-group" >
+          <div class="form-group searchbar" >
             <input type="text" class="form-control" placeholder="질문, 이름을 검색하세요">
             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
           </div>
         </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/home/write">나도 질문하기</a></li>
-        </ul>
+        <div class="nav navbar-nav navbar-right">
+          <a href="/home/write" class="question_word"><%= image_tag("makequestion.png", width: '40px', height: '40px', class: 'question') %>나도 질문하기!</a>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
