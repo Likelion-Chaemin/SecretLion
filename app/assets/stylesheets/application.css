@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+* { /** 폰트 영문 이름 지정 **/
+ font-family: 'Jeju Gothic', sans-serif;
+}
