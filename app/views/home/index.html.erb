@@ -99,6 +99,18 @@ $(document).ready(function(){
 			dataType: 'json',
 			data: {	},
 			success: function(data) {
+				var length = data.ids.length;
+					console.log(data.ids[0]);
+				for (var i = 0; i < length; i++) {
+					$("#vote_graph" + data.ids[i]).animate({"width":data.widths[i]+"%"}, 1000);
+					$("#vote_count" + data.ids[i]).text(data.votes[i] + "표");
+					if(data.ids[i] != photo_id) {
+						$("#vote_graph" + data.ids[i]).removeClass("vote_graph-selected");
+					}
+				}
+				$("#vote_graph" + photo_id).toggleClass("vote_graph-selected");
+				
+				/*
 				$("#vote_graph" + photo_id).animate({"width":data.width+"%"}, 1000);
 				$("#vote_count" + photo_id).text(data.votes + "표");
 				$("#vote_graph" + photo_id).toggleClass("vote_graph-selected");
@@ -110,6 +122,7 @@ $(document).ready(function(){
 					$("#vote_count" + data.former_id).text(data.former_votes + "표");
 					$("#vote_graph" + data.former_id).removeClass("vote_graph-selected");
 				}
+				*/
 			}
 		});
 	});

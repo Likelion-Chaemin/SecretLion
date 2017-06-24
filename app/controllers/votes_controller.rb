@@ -47,15 +47,28 @@ class VotesController < ApplicationController
 			new_like.save
 		end
 
+		ids = Array.new
+		widths = Array.new
+		votes = Array.new
+		index = 0
+		for p in vote.photos
+			ids[index] = p.id
+			widths[index] = p.width
+			votes[index] = p.photolikes.count
+			index += 1
+		end
+
+		render json: { ids: ids, widths: widths, votes: votes }
+			
 		if cancelled
-			render json: { cancelled: true, votes: photo.photolikes.count, width: photo.width }
+			#render json: { cancelled: true, votes: photo.photolikes.count, width: photo.width }
 		elsif moved
-			render json: { cancelled: false, moved: true, former_id: former_photo.id,
-									former_votes: former_photo.photolikes.count, former_width: former_photo.width,
-									votes: photo.photolikes.count, width: photo.width }
+			#render json: { cancelled: false, moved: true, former_id: former_photo.id,
+			#						former_votes: former_photo.photolikes.count, former_width: former_photo.width,
+			#						votes: photo.photolikes.count, width: photo.width }
 		else
-			render json: { cancelled: false, moved: false,
-									votes: photo.photolikes.count, width: photo.width }
+			#render json: { cancelled: false, moved: false,
+									#votes: photo.photolikes.count, width: photo.width }
 		end
 	end
 end
