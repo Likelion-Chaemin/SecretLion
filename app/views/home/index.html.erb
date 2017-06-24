@@ -1,1 +1,5 @@
+<% if @posts.count == 0 %>
+	<h1>작성된 글이 없습니다. 질문이나 투표를 작성해보세요!</h1>
+<% else %>
 <%= render partial: "posts", locals: {posts: @posts} %>
+<% end %>
