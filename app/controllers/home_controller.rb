@@ -55,4 +55,14 @@ class HomeController < ApplicationController
       @users = User.all
     end
 
+		def new_comment
+				@q_id = params[:q_id]
+        reply = Comment.new
+        reply.user_id = current_user.id
+        reply.question_id = @q_id
+        reply.content = params[:reply]
+        reply.save
+				@comments = reply.question.comments
+		end
+
 end

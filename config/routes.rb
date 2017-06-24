@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
 	get 'home/write'
 	post 'home/create'
+	post 'home/new_comment/:q_id' => 'home#new_comment'
 	get 'search' => 'home#search'
 	get 'target' => 'home#target'
 	get 'mine' => 'home#mine'

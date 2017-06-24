@@ -38,23 +38,28 @@
 		<% # 질문일 때
 		if p.is_a? Question %>
 
-  <% p.comments.each do |c| %>
-	  <div class="row c-view" >
-	  	<div class="col-md-12" style="margin-top:10px;">
-				<p class="col-md-2"><%= c.user.name %></p>
-				<p><%= c.content %></p>
-			</div>
-	  </div>
-  <% end %>
+		<div id="cmt_<%= p.id %>">
+			<%= render partial: "comments", locals: {comments: p.comments} %>
+		</div>
 		<div class="col-md-12">
-			<form action="/comments/create/<%= p.id %>" method="GET">
+			<%= form_tag "/home/new_comment/"+p.id.to_s, remote: true do %>
 				<div>
-				<textarea name="reply" cols="70" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px; border-radius: 7px;"></textarea>
+				<%= text_area_tag "reply" %>
 				</div>
 				<div class="pull-right">
-			  <button type="submit" class="pull-right btn-gray" style="margin-bottom:10px;">답변등록</button>
+					<%= submit_tag "답변등록" %>
 				</div>
-		  </form>
+			<% end %>
+				<%
+		#	<form action="/comments/create/ p.id " method="GET">
+		#		<div>
+		#		<textarea name="reply" cols="70" rows="3" placeholder="답변을 달아주세요" style="margin:20px 10px 10px 10px; border-radius: 7px;"></textarea>
+		#		</div>
+		#		<div class="pull-right">
+		#	  <button type="submit" class="pull-right btn-gray" style="margin-bottom:10px;">답변등록</button>
+		#		</div>
+		#	</form>
+		%>
 	  </div>
 
 			<% # 투표일 때
