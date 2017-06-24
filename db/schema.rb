@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",     null: false
     t.integer  "question_id", null: false
-    t.integer  "like_count"
     t.string   "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   create_table "photolikes", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "photo_id",   null: false
+    t.integer  "vote_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   create_table "photos", force: :cascade do |t|
     t.integer  "vote_id",       null: false
     t.integer  "photo_user_id", null: false
-    t.integer  "like_count"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -76,11 +75,11 @@ ActiveRecord::Schema.define(version: 20170616115433) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",     null: false
     t.string   "title"
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
