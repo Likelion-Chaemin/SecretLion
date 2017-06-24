@@ -44,7 +44,12 @@
 				<p style="color:gray">대상을 선택해주세요.</p>
 				<% @users.each do |u| %>
 					<div style="display:inline-block">
-						<input type="checkbox" name="target_user[]" value="<%=u.id%>">&nbsp;<%=u.name%>
+						<label for="target_<%=u.id%>">
+						<div class="icon" style="background-image: url('<%=u.photo%>')"></div>
+						</label>
+						<div>
+							<input id="target_<%=u.id%>" type="checkbox" name="target_user[]" value="<%=u.id%>">&nbsp;<%=u.name%>
+					</div>
 					</div>
 			<% end %>
 			</div>
