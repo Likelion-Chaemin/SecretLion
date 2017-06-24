@@ -72,13 +72,13 @@
   </nav>
   <div class="container" style="margin-top:50px; padding:30px 10px 0px 10px">
   	<div class="row">
-  		<div class="col-md-2">
-  			<div class="panel panel-default" class="col-md-offset-1 col-md-10">
+  		<div class="col-sm-3 col-md-2">
+				<div class="panel panel-default">
   				<div class="panel-body" style="background-color:lightgray;">
   					<p style="text-align:center">사자들</p>
-  					<div class="row" style="padding:5px;">
+  					<div class="text-center" style="margin: 0 auto; padding:5px;">
   					<% for user in User.all	%>
-  						<div class="col-md-4 ppl-icon" style="background-image: url('<%= user.photo %>');"></div>
+  						<div class="icon" style="background-image: url('<%= user.photo %>');"></div>
   					<% end %>
   					</div>
   				</div>
@@ -91,7 +91,7 @@
   			<div class="panel panel-default" class="col-md-offset-1 col-md-10">
   				<div class="panel-body" style="background-color:lightgray;">
   					<div class="row">
-							<div class="col-md-offset-2 col-md-4 ppl-icon" style="background-image: url('<%=current_user.photo%>')"></div>
+							<div class="col-md-offset-2 col-md-4 icon" style="background-image: url('<%=current_user.photo%>')"></div>
 							<div class="col-md-6" style="display:flex; align-items:center"><p style="display:inline-block; vertical-align:middle"><%=current_user.name%></p></div>
   					</div>
   					<div class="row text-center">
