@@ -21,6 +21,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
